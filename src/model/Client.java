@@ -1,8 +1,9 @@
 package model;
 
 import java.io.Serializable;
+import java.lang.Comparable;
 
-public class Client implements Serializable {
+public class Client implements Serializable, Comparable<Client>{
 	private static final long serialVersionUID = 1;
 	
 	private String idType;
@@ -63,5 +64,24 @@ public class Client implements Serializable {
 	public String toString() {
 		return "Name: " + name + "\nID Type: " + idType + "\nID: " + id + "\nPhone number" +
 	phone + "\nAddress: " + address;
+	}
+	
+	@Override
+	public int compareTo(Client otherClient) {
+		String ln1 = name.split(" ")[1];
+		String ln2 = otherClient.getName().split(" ")[1];
+		
+		int comp = 0;
+		
+		if(ln1.equals(ln2)) {
+			String fn1 = name.split(" ")[0];
+			String fn2 = otherClient.getName().split(" ")[0];
+			
+			comp = fn1.compareTo(fn2);
+		}else {
+			comp = ln1.compareTo(ln2);
+		}
+		
+		return comp;
 	}
 }

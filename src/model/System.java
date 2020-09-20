@@ -33,6 +33,8 @@ public class System {
 	 <b>post:</b> The client will be added sorted to the object clients <br>
 	 */
 	public void addClient(String idType, int id, String name, int phone, String address) {
+		int index = 0;
 		
+		clients.add(index, new Client(idType, id, name, phone, address));
 	}
 }
