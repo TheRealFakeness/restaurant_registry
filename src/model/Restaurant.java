@@ -38,4 +38,9 @@ public class Restaurant implements Serializable {
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
 	}
+	
+	@Override
+	public String toString() {
+		return "Name: " + name + "\nNIT: " + nit + "\nAdministrator's name: " + adminName;
+	}
 }
