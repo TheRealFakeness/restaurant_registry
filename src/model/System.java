@@ -33,8 +33,28 @@ public class System {
 	 <b>post:</b> The client will be added sorted to the object clients <br>
 	 */
 	public void addClient(String idType, int id, String name, int phone, String address) {
+		boolean noElements = false;
 		int index = 0;
+		Client c = new Client(idType, id, name, phone, address);
 		
-		clients.add(index, new Client(idType, id, name, phone, address));
+		if(clients.size() == 0) {
+			noElements = true;
+		}else if(c.compareTo(clients.get(0)) > 0) {
+			index = 0;
+		}else if(c.compareTo(clients.get((clients.size() - 1))) < 0) {
+			index = clients.size();
+		}else {
+			int i = 0;
+			while(c.compareTo(clients.get(i)) < 0) {
+				i++;
+			}
+			index = i;
+		}
+		
+		if(!noElements) {
+			clients.add(index, c);
+		}else{
+			clients.add(c);
+		}
 	}
 }
