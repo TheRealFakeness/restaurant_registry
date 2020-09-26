@@ -66,16 +66,24 @@ public class Client implements Serializable, Comparable<Client>{
 	phone + "\nAddress: " + address;
 	}
 	
+	/**
+	 Compares by client's name, taking the last name as first criterion, and first name as second <br>
+	 <b>pre</b> Both clients must have a named comprised of at least two names (only the first two will
+	 affect the comparison <br>
+	 <b>post</b> A positive integer will be returned if the first name is greater than the second
+	 one, a negative integer if it is lesser and 0 if they're equal <br>
+	 @param otherClient The client to be compared to <br>
+	 */
 	@Override
 	public int compareTo(Client otherClient) {
-		String ln1 = name.split(" ")[1];
+		String ln1 = this.name.split(" ")[1];
 		String ln2 = otherClient.getName().split(" ")[1];
 		
 		int comp = 0;
 		
 		if(ln1.equals(ln2)) {
-			String fn1 = name.split(" ")[0];
-			String fn2 = otherClient.getName().split(" ")[0];
+			String fn1 = this.name;
+			String fn2 = otherClient.getName();
 			
 			comp = fn1.compareTo(fn2);
 		}else {

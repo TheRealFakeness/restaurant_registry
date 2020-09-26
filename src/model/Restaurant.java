@@ -9,7 +9,7 @@ public class Restaurant implements Serializable {
 	private	int nit;
 	private String adminName;
 	
-	public Restaurant(String name, int nit, String adminName) {
+	public Restaurant(int nit, String name, String adminName) {
 		this.name = name;
 		this.nit = nit;
 		this.adminName = adminName;
@@ -41,6 +41,6 @@ public class Restaurant implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Name: " + name + "\nNIT: " + nit + "\nAdministrator's name: " + adminName;
+		return "\nName: " + name + "\nNIT: " + nit + "\nAdministrator's name: " + adminName;
 	}
 }
