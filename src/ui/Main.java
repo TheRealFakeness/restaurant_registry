@@ -6,5 +6,6 @@ public class Main {
 		Menu menu = new Menu();
 		menu.start();
 		menu.menu();
+		System.out.println("\nGoodbye.");
 	}
 }

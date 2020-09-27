@@ -35,6 +35,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Displays a menu with the options specified in the requirements.
+	 */
 	public void menu() {
 		while(!exit) {
 			System.out.println("\nSelect an option:"
@@ -181,9 +184,11 @@ public class Menu {
 			}
 		}
 		sc.close();
-		System.out.println("\nGoodbye.");
 	}
 	
+	/**
+	 * Registers a new restaurant through user input.
+	 */
 	public void registerRestaurant() { 
 		boolean exit = false;
 		
@@ -217,6 +222,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Registers a new client through user input.
+	 */
 	public void registerClient() {
 		boolean exit = false;
 		
@@ -257,6 +265,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Registers a new product through user input.
+	 */
 	public void registerProduct() { 
 		boolean exit = false;
 		
@@ -303,6 +314,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Registers a new order through user input.
+	 */
 	public void registerOrder() { 
 		boolean exit = false;
 		
@@ -408,6 +422,10 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Updates the data of a client from user input. The client is found
+	 * through their ID.
+	 */
 	public void updateClient() {
 		int clientIndex = 0;
 		try {
@@ -448,6 +466,10 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Updates the data of a product from user input. The product is found
+	 * through its ID.
+	 */
 	public void updateProduct() {
 		int productIndex = 0;
 		try {
@@ -481,6 +503,10 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Updates the data of an order from user input. The order is found
+	 * through its ID.
+	 */
 	public void updateOrder() {
 		int orderIndex = 0;
 		try {
@@ -583,6 +609,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Displays the info of all restaurants.
+	 */
 	public void displayRestaurants() {
 		try {
 			sys.sortRestaurants();
@@ -595,6 +624,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Displays the info of all clients.
+	 */
 	public void displayClients() {
 		Client clients[] = sys.getSortedClientArray();
 		
@@ -603,6 +635,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Imports restaurants from the specified file.
+	 */
 	public void importRestaurants() {
 		System.out.print("\nEnter file name: ");
 		String filename = sc.nextLine();
@@ -615,6 +650,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Imports clients from the specified file.
+	 */
 	public void importClients() {
 		System.out.print("\nEnter file name: ");
 		String filename = sc.nextLine();
@@ -627,6 +665,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Imports products from the specified file.
+	 */
 	public void importProducts() {
 		System.out.print("\nEnter file name: ");
 		String filename = sc.nextLine();
@@ -639,6 +680,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Imports orders from the specified file.
+	 */
 	public void importOrders() {
 		System.out.print("\nEnter file name: ");
 		String filename = sc.nextLine();
@@ -651,6 +695,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Exports order to the route /data/Orders.csv
+	 */
 	public void exportOrders() {
 		System.out.print("\nEnter separator (non alphanumeric): ");
 		char separator = 0;
@@ -675,6 +722,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Looks for and displays a client using binary search.
+	 */
 	public void searchClient() {
 		Calendar cal = Calendar.getInstance();
 		System.out.println("\nEnter client's full name:");

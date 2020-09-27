@@ -20,8 +20,8 @@ import exceptions.IDNotFoundException;
 import exceptions.InvalidStatusUpdateException;
 import exceptions.ClientNotFoundException;
 import comparators.ClientNameComparator;
-import exceptions.OrderNotFoundException;
-import exceptions.PersistenceException;
+import exceptions.OrderNotFoundException;                
+import exceptions.PersistenceException; 
 import comparators.ClientPhoneComparator;
 
 public class Sys {
@@ -30,6 +30,9 @@ public class Sys {
 	private LinkedList<Product> products;
 	private LinkedList<Restaurant> restaurants;
 	
+	/**
+	 * Creates a new order system.
+	 */
 	public Sys() {
 		this.clients = new LinkedList<>();
 		this.orders = new LinkedList<>();
@@ -279,8 +282,6 @@ public class Sys {
 	 * <b>post</b><br>
 	 * @param index The index of the client that is going to be updated.
 	 * @param idType ID Type
-	 * @param id ID
-	 * @param name Name
 	 * @param phone Phone
 	 * @param address Address
 	 * @throws IOException 
@@ -300,11 +301,9 @@ public class Sys {
 	 * <b>pre</b>The given index has to exist<br>
 	 * <b>post</b><br>
 	 * @param index The index of the product that is going to be updated.
-	 * @param id ID
 	 * @param name Name
 	 * @param description Description
 	 * @param price Price
-	 * @param nit Restaurant's NIT
 	 * @throws IOException 
 	 */
 	public void updateProduct(int index, String name, String description, 
