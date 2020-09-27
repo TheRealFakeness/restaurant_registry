@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
+import exceptions.ClientNotFoundException;
+
 public class SysTest {
 	private LinkedList<Restaurant> targetRestaurants;
 	private Sys sys;
@@ -47,6 +49,14 @@ public class SysTest {
 		sys.addOrder(1236, 1236, productIds, productAmount);
 	}
 	
+	public void setupStage3() throws IOException{
+		sys = new Sys();
+		sys.addClient("Cedula", 3049123, "Jolyne Cujoh", 4123951, "Green Dolphin Street 7331");
+		sys.addClient("Tarjeta de identidad", 4562094, "Tom Hanks", 3984246, "Elmore Street 19");
+		sys.addClient("Cedula", 3049123, "Joseph Joestar Joestar", 4123951, "Green Dolphin Street 7331");
+		sys.addClient("Tarjeta de identidad", 4562094, "Jonathan Joestar", 3984246, "Elmore Street 19");
+	}
+	
 	@Test
 	public void testSortRestaurants() throws IOException {
 		setupStage1();
@@ -63,10 +73,26 @@ public class SysTest {
 	public void testExportOrders() throws InterruptedException, IOException{
 		setupStage2();
 		
-		sys.exportOrders(";");
+		sys.exportOrders(';');
 		
 		if(new File("data/orders.csv").exists() == false) {
 			fail("File wasn't created.");
+		}
+	}
+	
+	@Test
+	public void testSearchClient() throws IOException, ClientNotFoundException{
+		setupStage3();
+		
+		assertEquals(sys.searchClient("Tom Hanks").getName(), "Tom Hanks");
+		assertEquals(sys.searchClient("Jonathan Joestar").getName(), "Jonathan Joestar");
+		assertEquals(sys.searchClient("Joseph Joestar Joestar").getName(), "Joseph Joestar Joestar");
+		
+		try {
+			sys.searchClient("Wes Bluemarine");
+			fail("Should have thrown ClientNotFoundException");
+		}catch(ClientNotFoundException cnfe) {
+			// Failed successfully!!
 		}
 	}
 }

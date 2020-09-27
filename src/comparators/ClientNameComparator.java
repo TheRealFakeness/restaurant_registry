@@ -20,10 +20,7 @@ public class ClientNameComparator implements Comparator<String> {
 		int comp = 0;
 		
 		if(ln1.equals(ln2)) {
-			String fn1 = name1;
-			String fn2 = name2;
-			
-			comp = fn1.compareTo(fn2);
+			comp = name1.compareTo(name2);
 		}else {
 			comp = ln1.compareTo(ln2);
 		}
